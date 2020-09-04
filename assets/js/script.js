@@ -19,11 +19,19 @@ var hourCheck = function() {
     var currentTime = moment().format("hA");
     console.log(currentTime);
     
-    var hourRow = ("#hour9am")
-    if (hourRow < currentTime) {
-        $(this).addClass("past");
-    }
-
+    $(".time-block").each(function () {
+        var hourRow = ("#hour9am")
+        console.log(hourRow, currentTime);
+        if (hourRow < currentTime) {
+            $(this).addClass("past");
+        }
+        else if (hourRow === currentTime) {
+            $(this).addClass("present");
+        }
+        else {
+            $(this).addClass("future");
+        }
+    })
 };
 
 hourCheck ();
