@@ -14,9 +14,16 @@ $(".saveBtn").on("click", function () {
 $("#hour9am" .description).val(localStorage.getItem("hour9am"));
 
 
-// // Style Hours based on past, present, future
-// function hourCheck()
+// Style Hours based on past, present, future
+var hourCheck = function() {
+    var currentTime = moment().format("hA");
+    console.log(currentTime);
+    
+    var hourRow = ("#hour9am")
+    if (hourRow < currentTime) {
+        $(this).addClass("past");
+    }
 
-// if (hourRow < currentHour) {
-//     $(this).addClass("past");
-// }
+};
+
+hourCheck ();
